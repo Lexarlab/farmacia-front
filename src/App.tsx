@@ -13,7 +13,7 @@ function App() {
         <Navbar/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/categoria" element={<ListaCategoria />} />
+            <Route path="/categorias" element={<ListaCategoria />} />
             <Route path="/cadastroTema" element={<FormularioCategoria />} />
             <Route path="/editarTema/:id" element={<FormularioCategoria/>} /> 
             <Route path="/deletarTema/:id" element={<DeletarCategoria/>} />  

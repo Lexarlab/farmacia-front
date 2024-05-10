@@ -12,7 +12,7 @@ function FormularioCategoria() {
     const { id } = useParams<{ id: string }>()  
 
     async function buscarPorId(id: string) {
-        await buscar(`/categoria/${id}`, setCategoria,{});
+        await buscar(`/categorias/${id}`, setCategoria);
     }
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function FormularioCategoria() {
 
         if (id !== undefined) { 
             try {
-                await atualizar(`/categoria`, categoria, setCategoria, {})
+                await atualizar(`/categorias`, categoria, setCategoria)
                 alert('Categoria atualizada com sucesso')
                 retornar()
             } catch (error: any) {
@@ -42,7 +42,7 @@ function FormularioCategoria() {
             }
         } else {    
             try {
-                await cadastrar(`/categoria`, categoria, setCategoria,{})
+                await cadastrar(`/categorias`, categoria, setCategoria)
                 alert('Categoria cadastrada com sucesso')
             } catch (error: any) {
                 alert('Erro ao cadastrar categoria')
@@ -54,7 +54,7 @@ function FormularioCategoria() {
     }
 
     function retornar() {
-        navigate("/categoria")
+        navigate("/categorias")
     }
 
     return (
@@ -65,6 +65,17 @@ function FormularioCategoria() {
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="nome">Nome da categoria</label>
+                    <input
+                        type="text"
+                        placeholder="nome"
+                        name='nome'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={categoria.nome}  
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}  
+                    />
+                </div>
                 <div className="flex flex-col gap-2">
                     <label htmlFor="descricao">Descrição de categoria</label>
                     <input

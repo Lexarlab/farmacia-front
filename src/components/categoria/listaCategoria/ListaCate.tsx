@@ -9,7 +9,7 @@ function ListaCategoria() {
 
   async function buscarCategoria() {
     try {
-      await buscar('/categoria', setCategoria,{});
+      await buscar('/categorias', setCategoria);
     } catch (error) {
       console.error('Erro ao buscar categorias:', error);
     }

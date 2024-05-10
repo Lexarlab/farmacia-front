@@ -13,6 +13,10 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
             Categoria
             </header>
 
+            <h4 className='p-8 text-3xl bg-slate-200 h-full'>
+                {categoria.nome}  
+            </h4>
+
             <p className='p-8 text-3xl bg-slate-200 h-full'>
                 {categoria.descricao}  
             </p>
